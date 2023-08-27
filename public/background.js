@@ -20,7 +20,7 @@ chrome.windows.onRemoved.addListener(() => {
     });
 });
 
-chrome.alarms.onAlarm.addListener(() => {
+chrome.alarms.onAlarm.addListener(() => { // giving error because chrome.alarns cant work for <1 min.
     chrome.storage.local.get(["time", "timePresets"], (res) => {
         if (res.time == 1) {
             chrome.alarms.clear("alarm", () => {
